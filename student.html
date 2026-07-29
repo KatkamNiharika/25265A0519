@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f2f2f2;
+    }
+
+    .container{
+        width:400px;
+        margin:30px auto;
+        background:#fff;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 0 10px gray;
+    }
+
+    h2{
+        text-align:center;
+        color:darkblue;
+    }
+
+    label{
+        font-weight:bold;
+    }
+
+    input, select, textarea{
+        width:100%;
+        padding:8px;
+        margin-top:5px;
+        margin-bottom:10px;
+        border:1px solid #ccc;
+        border-radius:5px;
+        box-sizing:border-box;
+    }
+
+    input[type="radio"]{
+        width:auto;
+    }
+
+    .buttons{
+        text-align:center;
+    }
+
+    button{
+        padding:10px 20px;
+        border:none;
+        border-radius:5px;
+        color:white;
+        cursor:pointer;
+        margin:5px;
+    }
+
+    .submit{
+        background:green;
+    }
+
+    .reset{
+        background:red;
+    }
+</style>
+
+<script>
+function validateForm()
+{
+    var id = document.getElementById("sid").value;
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var course = document.getElementById("course").value;
+
+    if(id=="")
+    {
+        alert("Enter Student ID");
+        return false;
+    }
+
+    if(name=="")
+    {
+        alert("Enter Student Name");
+        return false;
+    }
+
+    if(name.length < 3)
+    {
+        alert("Name must contain at least 3 characters");
+        return false;
+    }
+
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!email.match(emailPattern))
+    {
+        alert("Enter a valid Email");
+        return false;
+    }
+
+    if(phone.length!=10 || isNaN(phone))
+    {
+        alert("Phone number must contain 10 digits");
+        return false;
+    }
+
+    if(course=="")
+    {
+        alert("Select a Course");
+        return false;
+    }
+
+    alert("Student Registration Successful!");
+    return true;
+}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<label>Student ID</label>
+<input type="text" id="sid">
+
+<label>Student Name</label>
+<input type="text" id="name">
+
+<label>Email</label>
+<input type="text" id="email">
+
+<label>Phone Number</label>
+<input type="text" id="phone">
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<input type="radio" name="gender" value="Other"> Other
+
+<br><br>
+
+<label>Course</label>
+
+<select id="course">
+<option value="">Select Course</option>
+<option>BCA</option>
+<option>B.Sc</option>
+<option>B.Tech</option>
+<option>B.Com</option>
+<option>MCA</option>
+</select>
+
+<label>Address</label>
+<textarea rows="4"></textarea>
+
+<div class="buttons">
+<button type="submit" class="submit">Register</button>
+<button type="reset" class="reset">Reset</button>
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>
