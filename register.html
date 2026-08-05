@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Registration Form</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+      }
+
+      .container {
+        width: 350px;
+        margin: 40px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px gray;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background: darkblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Faculty Registration</h2>
+
+      <form id="facultyForm">
+        <label>Faculty Name</label>
+        <input type="text" id="name" />
+
+        <label>Email</label>
+        <input type="email" id="email" />
+
+        <label>Department</label>
+        <select id="department">
+          <option value="">Select Department</option>
+          <option>CSE</option>
+          <option>ECE</option>
+          <option>EEE</option>
+          <option>Mechanical</option>
+          <option>Civil</option>
+        </select>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" />
+       <label>alternate phone number</label>
+<input type="text" id="phone"/>
+        <label>Password</label>
+        <input type="password" id="password" />
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("facultyForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let name = document.getElementById("name").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let department = document.getElementById("department").value;
+          let phone = document.getElementById("phone").value.trim();
+          let password = document.getElementById("password").value.trim();
+
+          if (name == "") {
+            alert("Enter Faculty Name");
+            return;
+          }
+
+          if (email == "") {
+            alert("Enter Email");
+            return;
+          }
+
+          if (department == "") {
+            alert("Select Department");
+            return;
+          }
+
+          if (phone == "") {
+            alert("Enter Phone Number");
+            return;
+          }
+
+          if (password == "") {
+            alert("Enter Password");
+            return;
+          }
+
+          alert("Faculty Registration Successful!");
+
+          document.getElementById("facultyForm").reset();
+        });
+    </script>
+  </body>
+</html>
